@@ -1,0 +1,38 @@
+﻿@model IEnumerable<BankingApp3Tier.Models.Account>
+
+<h2>Bank Accounts</h2>
+<a asp-action="Create">Create New Account</a>
+
+<table border="1" cellpadding="5">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Account Holder</th>
+            <th>Balance</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var acc in Model)
+        {
+            <tr>
+                <td>@acc.AccountId</td>
+                <td>@acc.AccountHolder</td>
+                <td>@acc.Balance</td>
+                <td>
+                    <form asp-action="Deposit" method="post" style="display:inline">
+                        <input type="hidden" name="id" value="@acc.AccountId" />
+                        <input type="number" name="amount" placeholder="Deposit" />
+                        <button type="submit">Deposit</button>
+                    </form>
+
+                    <form asp-action="Withdraw" method="post" style="display:inline">
+                        <input type="hidden" name="id" value="@acc.AccountId" />
+                        <input type="number" name="amount" placeholder="Withdraw" />
+                        <button type="submit">Withdraw</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
