@@ -12,5 +12,7 @@ namespace BankingApp3Tier.Models
 
         [Required]
         public decimal Balance { get; set; }
+
+
     }
 }
