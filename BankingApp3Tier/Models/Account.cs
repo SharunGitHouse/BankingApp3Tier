@@ -8,10 +8,12 @@ namespace BankingApp3Tier.Models
         public int AccountId { get; set; }
 
         [Required]
-        public string AccountHolder { get; set; }
+        public required string AccountHolder { get; set; }
 
         [Required]
         public decimal Balance { get; set; }
+
+
 
 
     }
